@@ -79,7 +79,7 @@ def preprocess(opt, prompts, outdir, concept_type, ranks):
 
     else:
         with open(opt.prompts, "r") as f:
-            data = f.read().splitlines()
+            data = f.read().splitlines()[:opt.train_size]
             assert opt.train_size % len(data) == 0
             n_repeat = opt.train_size // len(data)
             data = np.array([n_repeat * [prompt] for prompt in data]
