@@ -47,7 +47,7 @@ class DDPM(pl.LightningModule):
                  unet_config,
                  timesteps=1000,
                  beta_schedule="linear",
-                 loss_type="l1",
+                 loss_type="huber",
                  ckpt_path=None,
                  ignore_keys=[],
                  load_only_unet=False,
@@ -286,6 +286,11 @@ class DDPM(pl.LightningModule):
                 loss = torch.nn.functional.mse_loss(target, pred)
             else:
                 loss = torch.nn.functional.mse_loss(target, pred, reduction='none')
+        elif self.loss_type == "huber":
+            if mean:
+                loss = torch.nn.functional.huber_loss(target, pred)
+            else:
+                loss = torch.nn.functional.huber_loss(target, pred, reduction="none")
         else:
             raise NotImplementedError("unknown loss type '{loss_type}'")
 
