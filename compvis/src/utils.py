@@ -170,7 +170,7 @@ def initialize(config, ckpt, delta_ckpt, seed=42):
 
 
 def sample(data, model, sampler, outpath, ddim_steps=200, ddim_eta=1.0,
-           n_iter=1, scale=6, batch_size=10, shape=(4, 64, 64),
+           n_iter=1, scale=6, batch_size=10, shape=(4, 32, 32),
            fixed_code=False, device=None, skip_save=False, skip_grid=True,
            metadata=True, base_count=0, n_rows=5, wandb_log=False, ckptname='base', rank=None):
     """

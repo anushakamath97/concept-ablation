@@ -161,11 +161,11 @@ data:
     train:
       target: src.finetune_data.MaskBase
       params:
-        size: 512
+        size: 256
     train2:
       target: src.finetune_data.MaskBase
       params:
-        size: 512
+        size: 256
 
 
 lightning:
@@ -183,3 +183,4 @@ lightning:
 
   trainer:
     max_steps: 110
+    max_epochs: 100

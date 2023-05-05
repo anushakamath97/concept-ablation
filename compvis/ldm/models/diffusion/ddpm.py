@@ -47,7 +47,7 @@ class DDPM(pl.LightningModule):
                  unet_config,
                  timesteps=1000,
                  beta_schedule="linear",
-                 loss_type="l2",
+                 loss_type="l1",
                  ckpt_path=None,
                  ignore_keys=[],
                  load_only_unet=False,
